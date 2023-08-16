@@ -22,6 +22,7 @@
 
 body{
     background-color: var(--bgColor);
+    overflow-x: hidden !important;
 }
 
 ul{ list-style-type: none; }
@@ -43,6 +44,7 @@ a{ text-decoration: none; }
     background-color: var(--pinkColor);
     width:100px;
     right:0;
+    bottom:0;
 }
 
 /*-----Navigacija-----*/
@@ -87,25 +89,26 @@ a{ text-decoration: none; }
 }
 .burger-menu{
     display: none;
+    cursor: pointer;
 }
 
 /*-----Side Navigation-----*/
 .side-nav{
     position: fixed;
     top: 0;
-    right: -100%;
+    left: -100%;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     background-color: var(--bgColor);
     z-index: 4;
-    transition: right 0.3s ease;
+    transition: left 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 .side-nav.active {
-    right: 0;
+    left: 0;
 }
 .sNav-links ul{
     text-align: center;
@@ -121,6 +124,59 @@ a{ text-decoration: none; }
     bottom:2em;
 }
 
+/*-----Hero Section-----*/
+#megaphone-img{
+    position:absolute;
+    right:-5vw;
+    transform: rotate(-45deg);
+    opacity: .8;
+    z-index: -1;
+    height:auto;
+    width:20em;
+}
+.hero{
+    position:relative;
+    top:4.375em;
+    min-height: calc(100vh - 4.375em);
+    width:100%;
+    padding: 0 5vw;
+    display: grid;
+    place-content: center;
+}
+#subtitle, #title, #cta{
+    font-family: var(--primFont);
+}
+#subtitle{
+    color: var(--greenColor);
+    font-size: 2em;
+}
+#title{
+    font-size: 6em;
+    color: var(--whiteColor);
+    line-height: 1.2em;
+}
+#desc{
+    font-family: var(--secFont);
+    font-size: 1.1em;
+    line-height: 1.5em;
+    color:var(--whiteColor);
+    width:80%;
+    margin: .5em 0 1em 0;
+}
+#cta{
+    float: right;
+    font-size: 1.5em;
+    padding: .7em 2em;
+    border-radius: 40px;
+    border:none;
+    background-color: var(--greenColor);
+    color:var(--bgColor);
+    cursor: pointer;
+}
+
+
+
+
 
 /*-----Responzivnost-----*/
 @media screen and (max-width:768px){
@@ -131,12 +187,41 @@ a{ text-decoration: none; }
         display: block;
     }
 }
-@media screen and (max-width:360px){
+@media screen and (max-width:540px){
+    #megaphone-img{
+        width:10em;
+    }
+    #subtitle{
+        font-size: 1.5em;
+    }
+    #title{
+        font-size: 4em;
+    }
+    #desc{
+        width: 100%;
+        font-size: 1.2em;
+        margin: 1em 0 2em 0;
+    }
+    #cta{
+        width: 100%;
+        font-size: 2em;
+    }
+}
+@media screen and (max-width:380px){
     .sNav-links a{
         font-size: 2em;
     }
     .socialMedia-sideNav img{
         height:1.4em;
+    }
+    #title{
+        font-size: 3em;
+    }
+    #desc{
+        font-size: 1em;
+    }
+    #cta{
+        padding: .4em 1em;
     }
 }
 @media screen and (min-width:1440px){
@@ -152,6 +237,19 @@ a{ text-decoration: none; }
     .socialMedia-nav img{
         height:1.5em;
     }
+    #subtitle{
+        font-size: 3em;
+    }
+    #title{
+        font-size: 7em;
+    }
+    #desc{
+        font-size:1.6em;
+    }
+    #cta{
+        font-size:2.2em;
+        border-radius: 70px;
+    }
 }
 @media screen and (min-width:1920px){
     .navigation{
@@ -166,6 +264,22 @@ a{ text-decoration: none; }
     .socialMedia-nav img{
         height:1.8em;
     }
+    #subtitle{
+        font-size: 4.5em;
+    }
+    #title{
+        font-size: 9em;
+    }
+    #desc{
+        font-size:2em;
+    }
+    #cta{
+        font-size:3em;
+        border-radius: 70px;
+    }
+    #megaphone-img{
+        width:25vw;
+    }
 }
 @media screen and (min-width:2400px){
     .navigation{
@@ -179,5 +293,18 @@ a{ text-decoration: none; }
     }
     .socialMedia-nav img{
         height:2.2em;
+    }
+    #subtitle{
+        font-size: 5em;
+    }
+    #title{
+        font-size: 12em;
+    }
+    #desc{
+        font-size:3em;
+    }
+    #cta{
+        font-size:4em;
+        border-radius: 120px;
     }
 }
